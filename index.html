@@ -1359,29 +1359,44 @@
     <script title="parallax">
       function parallax(elementId, divider) {
         const parallax = document.getElementById(elementId);
+        if (window.innerWidth >= 770) {
+          document.addEventListener("mousemove", (event) => {
+            let _mouseX = event.clientX / divider;
+            let _mouseY = event.clientY / divider;
+            parallax.style.cssText = `
+              transform: translate(${_mouseX}px, ${_mouseY}px);
+              -webkit-transform: translate(${_mouseX}px, ${_mouseY}px);
+              -moz-transform: translate(${_mouseX}px, ${_mouseY}px);
+            `;
+            setTimeout(() => {
+              parallax.style.transition = "all  0s";
+            }, 300);
+          });
+          // minus 1/2
+          document.addEventListener("mouseout", () => {
+            parallax.style.cssText = `
+              transform: translate(0px, 0px);
+              -webkit-transform: translate(0px, 0px);
+              -moz-transform: translate(0px, 0px);
+              transition: all 0.3s ease-in-out;
+            `;
+          });
+        } else if (false) {
+          window.addEventListener("deviceorientation", handleOrientation);
 
-        document.addEventListener("mousemove", (event) => {
-          parallax.style.transition = "all  0.3s ease-in-out";
-          let _mouseX = event.clientX / divider;
-          let _mouseY = event.clientY / divider;
-          parallax.style.cssText = `
-                    transform: translate(${_mouseX}px, ${_mouseY}px);
-                    -webkit-transform: translate(${_mouseX}px, ${_mouseY}px);
-                    -moz-transform: translate(${_mouseX}px, ${_mouseY}px);
-                `;
-          setTimeout(() => {
-            parallax.style.transition = "all  0s";
-          }, 300);
-        });
-        // minus 1/2
-        document.addEventListener("mouseout", () => {
-          parallax.style.cssText = `
-                    transform: translate(0px, 0px);
-                    -webkit-transform: translate(0px, 0px);
-                    -moz-transform: translate(0px, 0px);
-                    transition: all 0.3s ease-in-out;
-                `;
-        });
+          function handleOrientation(event) {
+            let _mouseX = event.gamma / divider;
+            let _mouseY = event.beta / divider;
+            parallax.style.cssText = `
+              transform: translate(${_mouseX}px, ${_mouseY}px);
+              -webkit-transform: translate(${_mouseX}px, ${_mouseY}px);
+              -moz-transform: translate(${_mouseX}px, ${_mouseY}px);
+            `;
+            setTimeout(() => {
+              parallax.style.transition = "all  0s";
+            }, 300);
+          }
+        }
       }
 
       parallax("parallax", 50);

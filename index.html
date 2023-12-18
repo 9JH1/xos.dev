@@ -396,7 +396,13 @@
         background: black;
       }
       @media only screen and (max-width: 770px) {
+        body {
+          background: linear-gradient(rgb(227, 195, 253), #e57eff);
+        }
         #status {
+          background: transparent;
+          backdrop-filter: blur(0px);
+          -webkit-backdrop-filter: blur(0px);
           .header-content {
             .left {
               min-width: 100%;
@@ -420,19 +426,20 @@
             }
           }
         }
-        .footer-content {
-          min-width: 100%;
+        .footer-content-mobile {
+          width: 90%;
+          height: 90%;
+          .mobile-footer-center-text {
+            font-size: var(--font-size-two);
+          }
         }
         .content-inner {
           width: 100%;
           height: 100%;
         }
         #parallax {
-          font-size: 20px;
-          background-color: red;
+          font-size: 0px;
           overflow: visible;
-          width: 100%;
-          height: 100%;
           display: block;
         }
         #terminal {
@@ -442,7 +449,7 @@
           box-shadow: none;
           -webkit-box-shadow: none;
           -moz-box-shadow: none;
-          color: rgb(197, 197, 197);
+          color: rgb(31, 31, 31);
           font-size: var(--text-size-one);
         }
         .text-large {
@@ -604,7 +611,31 @@
             With <strong class="fancytext" onclick = "openInNewTab('www.electronjs.org/')" >Electron</strong> I compiled my first real software, Xero Systems Lite, over the next year ( 2022 - 2023 ) I made 149 designs and 37 apps that where later scraped as the design dident meet my standards, the current design has had the most work put into it, more information can be found <strong class="fancytext">here</strong>.
         -->
     </div>
+    <script title="resize functions & append layout">
+      const desktopLayout = document.getElementById("footer").innerHTML;
 
+      function updateFooterContent() {
+        if (window.innerWidth < 770) {
+          document.getElementById("footer").innerHTML = `
+      <div class="footer-content-mobile" >
+        <div class="mobile-footer-center-text">hello</div>
+        welcome to <strong class="fancytext">xero systems</strong>, a
+        website I made for the sole purpose of showcasing my journey into
+        software development. <br /><br />
+        for the best experience please re-visit this website on a computer
+      </div>
+    `;
+        } else {
+          document.getElementById("footer").innerHTML = desktopLayout;
+        }
+      }
+
+      // Initial update
+      updateFooterContent();
+
+      // Update on window resize
+      window.addEventListener("resize", updateFooterContent);
+    </script>
     <script title="root vars and listeners">
       window.scrollTo(0, 0);
 

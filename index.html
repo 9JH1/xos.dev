@@ -20,11 +20,18 @@
 
       :root {
         --background: white;
+        --background-two: black;
         --text: black;
+        --text-two: white;
         --text-size-one: 1vh;
         --text-size-two: 1.3vh;
         --text-display-size: 1.5vh;
         --text-size-two-mobile-sub: 3vh;
+        --text-gradient-one: rgb(189, 108, 255);
+        --text-gradient-one: #d42aff;
+        --mobile-gradient-one: ;
+        --mobile-gradient-one: ;
+        --background-two: ;
       }
 
       html {
@@ -166,21 +173,21 @@
               user-select: none;
 
               .clock-inner {
-                background-color: black;
+                background-color: var(--background-two);
                 padding: 3px;
-                color: white;
+                color: var(--text-two);
               }
 
               .mute-inner {
-                background-color: black;
+                background-color: var(--background-two);
                 padding: 3px;
-                color: white;
+                color: var(--text-two);
                 margin-right: 10px;
               }
 
               .mute-inner:hover {
-                background-color: white;
-                color: black;
+                background-color: var(--text-two);
+                color: var(--text);
                 cursor: pointer;
               }
             }
@@ -193,8 +200,8 @@
           border: 0;
           font-size: 11px;
           font-family: "Inconsolata", monospace;
-          background-color: white;
-          color: black;
+          background-color: var(--text-two);
+          color: var(--text);
         }
 
         .content-inner {
@@ -211,7 +218,6 @@
             font-family: "Source Code Pro", monospace;
             display: flex;
             align-items: center;
-            color: rgb(204, 204, 204);
             background: -webkit-linear-gradient(rgb(189, 108, 255), #d42aff);
             -webkit-background-clip: text;
             background-clip: text;

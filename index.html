@@ -844,7 +844,7 @@
                             <span id="download-tag"></span>
                         </div>
                         <div class="rest-item">
-                            <strong class="fancytext button-stats" onclick="">? </strong> ?
+                            <strong class="fancytext button-stats" onclick="changeStatsFeatured(3)">commits </strong> 5
                         </div>
                     </div>
                 </div>
@@ -1031,6 +1031,17 @@
                     </div>
                     <div class="rest">
                         this is the total amount of people who have downloaded software off of this webpage the raw value being <span id="download-raw-tag"></span>
+                    </div>
+                </div>
+                `;
+        } else if (index == 3) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                        COMMITS
+                    </div>
+                    <div class="rest">
+                        this is the amount of times this website has had new code added to it
                     </div>
                 </div>
                 `;

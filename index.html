@@ -487,7 +487,7 @@
         <div class="header-content">
           <div class="left">
             <div class="link-landingpage">
-              <strong class="fancytext" id="link-landing-page-beta"
+              <strong class="fancytext" id="link-landing-page-home"
                 >home</strong
               >
             </div>
@@ -497,7 +497,7 @@
             <div class="link-landingpage" id="link-landing-page-commits">
               <strong class="fancytext"> commits </strong>
             </div>
-            <div class="link-landingpage" id="link-landing-page-download">
+            <div class="link-landingpage" id="link-landing-page-beta">
               <strong class="fancytext"> beta </strong>
             </div>
           </div>
@@ -644,6 +644,11 @@
     <script title="root vars and listeners">
       window.scrollTo(0, 0);
       const homePageLnk = location.href;
+      document
+        .getElementById("link-landing-page-home")
+        .addEventListener("click", () => {
+          window.location.href = homePageLnk;
+        });
       console.log(homePageLnk);
 
       const largeText = document.getElementById("logo");
@@ -1424,11 +1429,10 @@
       parallax("status", 300);
       parallax("footer", 300);
       parallax("terminal-text-window", 400);
-      parallax("link-landing-page-beta", 350);
+      parallax("link-landing-page-home", 350);
       parallax("link-landing-page-about", 350);
-      parallax("link-landing-page-prices", 350);
+      parallax("link-landing-page-beta", 350);
       parallax("link-landing-page-commits", 350);
-      parallax("link-landing-page-download", 350);
     </script>
     <script title="terminal out">
       function renderLine(containerId, dataset) {

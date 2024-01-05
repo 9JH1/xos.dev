@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // store namespace
+      let ns = "http://www.w3.org/2000/svg";
+
+      // create svg element
+      let svg = document.createElementNS(ns, "svg");
+      document.body.appendChild(svg);
+
+      // set width and height
+      svg.setAttribute("width", "100");
+      svg.setAttribute("height", "100");
+
+      // just an example to create a path
+      let path = document.createElementNS(ns, "path");
+      path.setAttributeNS(null, "stroke-width", 2);
+      path.setAttributeNS(
+        null,
+        "d",
+        "M300 200 m-10.292521287196118 -2.2297708853450806 l-8.789109120138724 -1.6054377906297648"
+      );
+
+      // add the path to the svg
+      svg.appendChild(path);
+    </script>
+  </body>
+</html>

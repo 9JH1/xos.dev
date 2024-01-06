@@ -1,0 +1,21 @@
+{
+    "welcome": {
+        "title": "welcome",
+        "content_file": "welcome to the offical Xero Systems Website, on this website you will find all the downloads to software published by Xero Systems. this website is under construction so be gentle :)<br><br> Hello, I am a 15yr old Aspirering Software / Web Dev from ,New Zealand, this website and all avalible software avalible on this site was made by me.",
+        "path_name": "home",
+        "content_file_options": {
+            "": {
+                "title": "",
+                "content_file": "",
+                "path_name": "",
+                "content_file_options": ""
+            },
+            "knowledge": {
+                "title": "knowledge",
+                "content_file": "Hello and welcome to my website, my name is 3hy, this is a website I have made to showcase my work, mainly new releases of software I have been solo developing.<br><br> I have learnt batch, python, HTML, CSS, JS, PHP and I am currently learning rust over the course of three years I am only fifteen and I have developed 3 functioning applications using various languages.<br><br> The first of which was written entirerly in batch, I then learnt python and made another app using Tkinter, after that I decided to move properly into software development so I learnt HTML, CSS and JS With Electron. <br> <br> I compiled my first real software, Xero Systems Lite, over the next year ( 2022 - 2023 ) I made 149 designs and 37 apps that where later scraped as the design dident meet my standards, the current design has had the most work put into it.<br><br>",
+                "path_name": "knowledge",
+                "content_file_options": {}
+            }
+        }
+    }
+}

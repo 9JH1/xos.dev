@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>new menu card prototype</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+    .selector {
+      width: 550px;
+      height: 260px;
+      background-color: red;
+      font-family: "Poppins";
+
+      .top-title {
+        width: 100%;
+        height: 10%;
+        background-color: green;
+        display: flex;
+
+        .path {
+          width: 60%;
+          height: 100%;
+          background-color: rgb(32, 135, 224);
+          display: flex;
+
+          .path-item {
+            background-color: rgb(98, 98, 160);
+          }
+        }
+
+        .title {
+          width: 40%;
+          height: 100%;
+          background-color: darkblue;
+        }
+      }
+
+      .inner-sel {
+        width: 100%;
+        height: 90%;
+        background-color: blue;
+        display: flex;
+
+        .contents {
+          width: 20%;
+          height: 100%;
+          background-color: orange;
+          padding: 5px;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+          .back {
+            height: fit-content;
+            background-color: cyan;
+          }
+
+          .rest {
+            width: 100%;
+            background-color: purple;
+            height: max-content;
+
+            .rest-item {
+              background-color: cyan;
+              overflow: hidden;
+              font-size: 0.8em;
+            }
+          }
+        }
+
+        .article {
+          width: 80%;
+          height: 100%;
+          background-color: brown;
+
+          .frame-file {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+
+          }
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="selector">
+    <div class="top-title">
+      <div class="path" id="path-content-selector"></div>
+      <div class="title" id="title-selector"></div>
+      <!--this is for the path file-->
+    </div>
+    <div class="inner-sel">
+      <div class="contents">
+        <div class="back" id="back">..</div>
+        <div class="rest" id="rest-content">
+          <!-- this is where the next content items appear-->
+        </div>
+      </div>
+      <div class="article" id="iframe-selector">
+        <!-- iframe for the new page-->
+      </div>
+    </div>
+  </div>
+  <script title="json implementation">
+    function renderInformedPage(path) {
+      json = jsonDataContent
+      function getNameByPath(path, json) {
+        const pathParts = path.split("/");
+        let prePath = ""
+        let currentData = json;
+        for (const part of pathParts) {
+          if (currentData && currentData[part]) {
+            currentData = currentData[part];
+          } else {
+            console.error(`Invalid path or missing data for '${path}'.`);
+            return null;
+          }
+        }
+        return currentData.path_name
+      }
+      const subDirsElement = document.getElementById("rest-content");
+      const frameFileContents = document.getElementById("iframe-selector");
+      const pathElement = document.getElementById("path-content-selector");
+      const titleElement = document.getElementById("title-selector");
+      const backButton = document.getElementById("back");
+      const pathParts = path.split("/");
+      let prePath = ""
+      subDirsElement.innerHTML = ""
+      let currentData = json;
+      for (const part of pathParts) {
+        if (currentData && currentData[part]) {
+          currentData = currentData[part];
+        } else {
+          console.error(`Invalid path or missing data for '${path}'.`);
+          return null;
+        }
+      }
+
+
+      console.log('Path:', path);
+      console.log('Current JSON Data:', currentData);
+      for (let i = 0; i < pathParts.length; i++) {
+        let partialPath = '';
+
+        if (pathParts[i] !== "content_file_options") {
+          for (let j = 0; j <= i; j++) {
+            partialPath += pathParts[j] + '/';
+          }
+          const pathTitle = getNameByPath(partialPath.slice(0, -1), json)
+          prePath += '<div class="path-item-sep">/</div>'
+          partialPathLnk = partialPath.slice(0, -1)
+          console.log(partialPath.slice(0, -1))
+          prePath += `<div class="path-item" onclick= "renderInformedPage('${partialPathLnk}')" >${pathTitle}</div>`;
+
+        }
+      }
+      document.getElementById("path-content-selector").innerHTML = prePath;
+
+
+
+
+
+      titleElement.innerText = currentData.title;
+
+      //console.log(currentData.content_file);
+      frameFileContents.innerHTML = `<iframe class="frame-file" src="${currentData.content_file}"></iframe>`
+      //onsole.log("sub:");
+
+      if (currentData && currentData.content_file_options && typeof currentData.content_file_options === "object") {
+        for (const [key, value] of Object.entries(
+          currentData.content_file_options
+        )) {
+          console.log(" ------------------- ")
+          console.log(path)
+          subDirsElement.innerHTML += `<div class="rest-item", onclick="renderInformedPage('${path}/content_file_options/${key}')">${key}</div>`
+        }
+      } else {
+        //console.log("no sub dirs");
+      }
+    }
+
+    let jsonDataContent;
+    fetch(".pages/index.json")
+      .then((response) => response.json())
+      .then((json) => {
+        jsonDataContent = json;
+        renderInformedPage(
+          "optionOne/content_file_options/subOptionTwo",
+          jsonDataContent
+        );
+      })
+      .catch((error) => console.error("Error fetching JSON:", error));
+  </script>
+</body>
+
+</html>

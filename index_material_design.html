@@ -3,32 +3,1544 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <!--meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'none'; style-src 'none';"
+    /-->
+    <title id="title">xos.dev</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://manciniworldwide.com/wp-content/uploads/2019/02/invisible-png.png"
+    />
+
+    <style title="stylesheet one">
+      @import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@800&family=Inconsolata&family=Source+Code+Pro:wght@700&display=swap");
+
+      :root {
+        --background: white;
+        --background-two: black;
+        --text: black;
+        --text-two: white;
+        --text-size-one: 1vh;
+        --text-size-two: 1.3vh;
+        --text-display-size: 1.5vh;
+        --text-size-two-mobile-sub: 3vh;
+        --text-gradient-one: rgb(189, 108, 255);
+        --text-gradient-one: #d42aff;
+        --mobile-gradient-one: ;
+        --mobile-gradient-one: ;
+        --background-two: ;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      .page1 {
+        overflow: hidden;
+      }
+
+      body,
+      .page1 {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        font-family: "Inconsolata", monospace;
+        overflow-x: hidden;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        .content-page {
+          width: 100%;
+          height: calc(100% - 14% - 40px);
+        }
+
+        .footer {
+          width: 100%;
+          height: 14%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          user-select: none;
+          .footer-content {
+            width: 90%;
+            height: 100%;
+            font-size: var(--text-size-one);
+            display: flex;
+
+            .spacer {
+              width: 20px;
+            }
+
+            .spacer-large {
+              width: 80px;
+            }
+
+            .text-large {
+              font-size: 12vh;
+
+              font-family: "Azeret Mono", monospace;
+              display: flex;
+              align-items: start;
+              justify-content: start;
+              margin-right: 80px;
+            }
+
+            .about {
+              height: 100%;
+              overflow: hidden;
+              max-width: 350px;
+
+              .title {
+                width: 100%;
+                height: 20%;
+                font-size: var(--text-size-two);
+                overflow: hidden;
+              }
+
+              .rest {
+                width: 100%;
+                height: 80%;
+
+                .rest-item {
+                  width: 100%;
+                  height: 15px;
+                }
+              }
+            }
+
+            .active-tile {
+              border-radius: 0px 10px 10px 0px;
+              padding: 0px 10px;
+            }
+
+            .desc {
+              width: 300px;
+
+              .rest {
+                padding: 0px 10px 0px 10px;
+                text-wrap: balance;
+              }
+            }
+          }
+        }
+
+        #status {
+          font-size: var(--text-display-size);
+          width: 100%;
+          height: 40px;
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          .header-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            .left {
+              width: 30%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-evenly;
+              .link-landingpage {
+                width: 17%;
+                height: 80%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                user-select: none;
+                overflow: hidden;
+              }
+            }
+
+            .rem {
+              width: 20%;
+              height: 100%;
+            }
+
+            .right {
+              width: 50%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: end;
+              user-select: none;
+
+              .clock-inner {
+                background-color: var(--background-two);
+                padding: 3px;
+                color: var(--text-two);
+              }
+
+              .mute-inner {
+                background-color: var(--background-two);
+                padding: 3px;
+                color: var(--text-two);
+                margin-right: 10px;
+              }
+
+              .mute-inner:hover {
+                background-color: var(--text-two);
+                color: var(--text);
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+        .form-email,
+        .form-email-button {
+          outline: 0;
+          border: 0;
+          font-size: 11px;
+          font-family: "Inconsolata", monospace;
+          background-color: var(--text-two);
+          color: var(--text);
+        }
+
+        .content-inner {
+          width: 100%;
+          height: 100%;
+          position: relative;
+
+          .largetextbackground {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-size: 38vh;
+            white-space: 0px;
+            font-family: "Source Code Pro", monospace;
+            display: flex;
+            align-items: center;
+            background: -webkit-linear-gradient(rgb(189, 108, 255), #d42aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            user-select: none;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+
+        .terminal {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: var(--text-display-size);
+
+          .terminal-window {
+            border-radius: 10px;
+            width: 60%;
+            height: 75%;
+            background: rgba(216, 216, 216, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0px 9px 20px -15px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 0px 9px 20px -15px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 9px 20px -15px rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .terminal-text {
+              width: 95%;
+              height: 95%;
+              overflow: hidden;
+            }
+          }
+        }
+
+        .title-no-effect:hover {
+          padding: 2px 0px;
+        }
+
+        .title-tile:hover {
+          background-color: black;
+          color: white;
+          padding: 2px 0px;
+          cursor: pointer;
+        }
+
+        #featured,
+        #options-featured,
+        #stats-featured,
+        #info-featured-changer-two,
+        #info-featured-changer {
+          display: flex;
+        }
+      }
+
+      .toast-container {
+        position: fixed;
+        width: 100vw;
+        top: 0%;
+        display: flex;
+        right: 0%;
+        justify-content: center;
+        transition: all 0.4s;
+
+        .notify-toast {
+          height: 30px;
+          width: 250px;
+          display: flex;
+          justify-content: center;
+          border-radius: 5px;
+          margin-top: 10px;
+          border: solid black 3px;
+          color: black;
+          align-items: center;
+          font-size: 13px;
+          background-color: rgb(255, 255, 255);
+
+          .title {
+            width: 30%;
+            height: 100%;
+            display: flex;
+            font-size: 15px;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .description {
+            width: 70%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+
+      .banner {
+        user-select: none;
+        width: 100vw;
+        height: 40px;
+        background: linear-gradient(
+          rgba(189, 108, 255, 0.3),
+          rgba(212, 42, 255, 0.3)
+        );
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        top: 0%;
+        display: flex;
+        color: rgb(0, 0, 0);
+        left: 0%;
+        position: fixed;
+        align-items: center;
+        justify-content: center;
+
+        .description {
+          width: calc(100% - 30px);
+          height: 30px;
+          display: Flex;
+          align-items: center;
+          padding-left: 10px;
+        }
+
+        #close-banner {
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      /*.card {
+            position: absolute;
+            transition: transform 0.1s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+        .card::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        } */
+      .fancytext:hover,
+      .button-active {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+      }
+
+      .fancytext,
+      .title-no-effect {
+        font-style: normal;
+        text-decoration: none;
+        font-weight: 400;
+        padding: 3px;
+      }
+
+      .command-terminal-line-special {
+        padding: 3px;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.4);
+        color: rgb(0, 0, 0);
+      }
+
+      .terminal-line {
+        white-space: pre;
+      }
+
+      ::selection {
+        color: #ffffff;
+        /* Set the text color for text selection */
+        background: black;
+      }
+      @media only screen and (max-width: 770px) {
+        body {
+          background: linear-gradient(rgb(227, 195, 253), #e57eff);
+        }
+        #status {
+          background: transparent;
+          backdrop-filter: blur(0px);
+          -webkit-backdrop-filter: blur(0px);
+          .header-content {
+            .left {
+              min-width: 100%;
+            }
+
+            .rem {
+              display: none;
+            }
+
+            .right {
+              display: none;
+              height: 0px;
+              width: 0px;
+              overflow: hidden;
+              .clock-inner {
+                display: none;
+              }
+              .mute-inner {
+                display: none;
+              }
+            }
+          }
+        }
+        .footer-content-mobile {
+          width: 90%;
+          height: 90%;
+          font-size: var(--text-size-one);
+          .mobile-footer-center-text {
+            font-size: var(--text-size-two);
+          }
+        }
+        .content-inner {
+          width: 100%;
+          height: 100%;
+        }
+        #parallax {
+          font-size: 0px;
+          overflow: visible;
+          display: block;
+        }
+        #terminal {
+          width: 100%;
+          height: 100%;
+          border-radius: 0px;
+          box-shadow: none;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          color: rgb(31, 31, 31);
+          font-size: var(--text-size-one);
+        }
+        .text-large {
+          display: none;
+          height: 0px;
+          overflow: hidden;
+          position: fixed;
+          opacity: 0;
+          width: 0px;
+          margin-right: 0px;
+        }
+        .content-page {
+          height: calc(100% - 30% - 40px);
+        }
+        .link-landingpage {
+          width: fit-content;
+          height: fit-content;
+          font-size: var(--font-size-two);
+        }
+      }
+      @media only screen and (max-width: 1800px) {
+        #logo {
+          width: 0px;
+          height: 0px;
+          display: none;
+          position: absolute;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <script>
-      // store namespace
-      let ns = "http://www.w3.org/2000/svg";
+    <div class="page1">
+      <div class="header" id="status">
+        <div class="header-content">
+          <div class="left">
+            <div class="link-landingpage">
+              <strong class="fancytext" id="link-landing-page-home"
+                >home</strong
+              >
+            </div>
+            <div class="link-landingpage" id="link-landing-page-about">
+              <strong class="fancytext"> about </strong>
+            </div>
+            <div class="link-landingpage" id="link-landing-page-commits">
+              <strong class="fancytext"> commits </strong>
+            </div>
+            <div class="link-landingpage" id="link-landing-page-beta">
+              <strong class="fancytext"> beta </strong>
+            </div>
+          </div>
+          <div class="rem"></div>
+          <div class="right">
+            <div class="clock-inner">00:00:00</div>
+            <div class="mute-inner">ESC</div>
+          </div>
+        </div>
+      </div>
+      <div class="content-page">
+        <div class="content-inner">
+          <div class="largetextbackground" id="parallax">XERO<br />SYSTEMS</div>
+          <div class="terminal">
+            <div class="terminal-window" id="terminal">
+              <div class="terminal-text" id="terminal-text-window"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer" id="footer">
+        <div class="footer-content" data-animation="opacity">
+          <div class="text-large" id="logo">xos.onl</div>
+          <div
+            class="about website"
+            data-animation="opacity"
+            data-animation-delay="0.2s"
+          >
+            <div class="title">
+              <strong class="title-tile">XERO SYSTEMS</strong>
+            </div>
+            <div class="rest">
+              <div class="rest-item">recent updates:</div>
+              <div class="rest-item">
+                <strong class="fancytext" onclick="openInNewTab('example.com')"
+                  >XSL 49.135</strong
+                >
+              </div>
+              <div class="rest-item">
+                <strong class="fancytext" onclick="openInNewTab('example.com')"
+                  >XSL 49.134</strong
+                >
+              </div>
+              <div class="rest-item">
+                <strong class="fancytext" onclick="openInNewTab('example.com')"
+                  >XSL 49.133</strong
+                >
+              </div>
+              <div class="rest-item">...</div>
+            </div>
+          </div>
+          <div class="spacer"></div>
+          <div
+            class="about"
+            data-animation="opacity"
+            data-animation-delay="0.3s"
+          >
+            <div class="title">READ ME</div>
+            <div class="rest">
+              welcome to xero systems, this is my portflio website, and will be
+              the main showcase for all my projects,<br />
+              <br />
+              I am a fifteen years old and im an aspirering web / software
+              developer from New Zealand.
+            </div>
+          </div>
+          <div class="spacer-large"></div>
+          <div
+            class="about"
+            data-animation="opacity"
+            data-animation-delay="0.4s"
+          >
+            <div class="title">OPTIONS</div>
+            <div class="rest">
+              <div class="rest-item">
+                <strong
+                  class="fancytext button-options"
+                  onclick="changeOptionsFeatured(0)"
+                  >precursor</strong
+                >
+              </div>
+              <div class="rest-item">
+                <strong
+                  class="fancytext button-options"
+                  onclick="changeOptionsFeatured(1)"
+                  >statistics</strong
+                >
+              </div>
+              <div class="rest-item">
+                <strong
+                  class="fancytext button-options"
+                  onclick="changeOptionsFeatured(2)"
+                  >contact</strong
+                >
+              </div>
+              <div class="rest-item">
+                <strong
+                  class="fancytext button-options"
+                  onclick="changeOptionsFeatured(3)"
+                  >downloads</strong
+                >
+              </div>
+            </div>
+          </div>
+          <div class="spacer"></div>
+          <div id="options-featured"></div>
+        </div>
+      </div>
+      <!--
+            Hello and welcome to my website, my name is 3hy, this is a website I have made to showcase my work, mainly new releases of software I have been solo developing.
+            I have learnt <strong class="fancytext" onclick = "openInNewTab('en.wikipedia.org/wiki/Batch_file')">batch</strong>, <strong class="fancytext" onclick="openInNewTab('www.python.org/')">python</strong>, <strong class="fancytext" onclick="openInNewTab('en.wikipedia.org/wiki/HTML')">HTML</strong>, <strong class="fancytext" onclick="openInNewTab('//en.wikipedia.org/wiki/CSS')">CSS</strong>, 
+            <strong class="fancytext" onclick="openInNewTab('en.wikipedia.org/wiki/javascript')">JS</strong>,<strong class="fancytext"  onclick = "openInNewTab('php.net')">PHP</strong> and I am currently learning <strong class="fancytext"  onclick = "openInNewTab('www.rust-lang.org/')">rust</strong>
+            over the course of three years
+            I am only fifteen and I have developed 3 functioning applications using various languages. The first of which was written entirerly in <strong class="fancytext"  onclick = "openInNewTab('en.wikipedia.org/wiki/Batch_file')">batch</strong>,
+            I then learnt <strong class="fancytext" onclick="openInNewTab('www.python.org/')">python</strong> and made another app using <strong class="fancytext" onclick="openInNewTab('en.wikipedia.org/wiki/Tkinter#:~:text=Tkinter%20is%20a%20Python%20binding,License')">Tkinter</strong>, after that I decided to move properly into software development so I learnt <strong class="fancytext" onclick="openInNewTab('//en.wikipedia.org/wiki/HTML')">HTML</strong>, <strong class="fancytext" onclick="openInNewTab('//en.wikipedia.org/wiki/CSS')">CSS</strong> and <strong class="fancytext" onclick="openInNewTab('//en.wikipedia.org/wiki/javascript')">JS</strong>
+            With <strong class="fancytext" onclick = "openInNewTab('www.electronjs.org/')" >Electron</strong> I compiled my first real software, Xero Systems Lite, over the next year ( 2022 - 2023 ) I made 149 designs and 37 apps that where later scraped as the design dident meet my standards, the current design has had the most work put into it, more information can be found <strong class="fancytext">here</strong>.
+        -->
+    </div>
+    <script title="resize functions & append layout">
+      const desktopLayout = document.getElementById("footer").innerHTML;
 
-      // create svg element
-      let svg = document.createElementNS(ns, "svg");
-      document.body.appendChild(svg);
+      function updateFooterContent() {
+        if (window.innerWidth < 770) {
+          document.getElementById("footer").innerHTML = `
+      <div class="footer-content-mobile" >
+        <div class="mobile-footer-center-text">hello</div>
+        welcome to <strong class="fancytext">xero systems</strong>, a
+        website I made for the sole purpose of showcasing my journey into
+        software development. <br /><br />
+        for the best experience please re-visit this website on a computer
+      </div>
+    `;
+        } else {
+          document.getElementById("footer").innerHTML = desktopLayout;
+        }
+      }
 
-      // set width and height
-      svg.setAttribute("width", "100");
-      svg.setAttribute("height", "100");
+      // Initial update
+      updateFooterContent();
 
-      // just an example to create a path
-      let path = document.createElementNS(ns, "path");
-      path.setAttributeNS(null, "stroke-width", 2);
-      path.setAttributeNS(
-        null,
-        "d",
-        "M300 200 m-10.292521287196118 -2.2297708853450806 l-8.789109120138724 -1.6054377906297648"
-      );
+      // Update on window resize
+      window.addEventListener("resize", updateFooterContent);
+    </script>
+    <script title="root vars and listeners">
+      window.scrollTo(0, 0);
+      const homePageLnk = location.href;
+      document
+        .getElementById("link-landing-page-home")
+        .addEventListener("click", () => {
+          window.location.href = homePageLnk;
+        });
+      console.log(homePageLnk);
 
-      // add the path to the svg
-      svg.appendChild(path);
+      const largeText = document.getElementById("logo");
+      let count = 0;
+      if (largeText !== null) {
+        largeText.addEventListener("click", () => {
+          if (count < 13) {
+            count++;
+            console.log(count);
+          } else if (count === 13) {
+            count = 0;
+            notifyToast("why", "are you doing that?", 2000);
+            document.getElementsByTagName("body")[0].style.backgroundImage =
+              "url('data:image/jpeg;base64,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')";
+          }
+        });
+      }
+      setInterval(() => {
+        document.getElementsByClassName("clock-inner")[0].innerText =
+          getCurrentTime();
+      }, 1000);
+    </script>
+    <script title="root functions">
+      function evalScript(text) {
+        const newScript = document.createElement("script");
+        newScript.title = "evaluated script";
+        newScript.innerHTML = text;
+        document.getElementsByTagName("body")[0].appendChild(newScript);
+      }
+
+      function getCurrentTime() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+
+        const formattedTime = `${hours}:${minutes}:${seconds}`;
+        return formattedTime;
+      }
+      function openInNewFile(url) {
+        window.open(`${url}`, "_blank");
+        renderLine("terminal-text-window", [`.xos -w --open ${url}`]);
+      }
+      function openInNewTab(url) {
+        window.open(`https://${url}`, "_blank");
+        renderLine("terminal-text-window", [`.xos -w --open ${url}`]);
+      }
+      function copyToClipboard(text) {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "absolute";
+        textarea.style.left = "-9999px";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        renderLine("terminal-text-window", [`.xos -c  ${text}`]);
+      }
+      function notifyToast(title, description, duration) {
+        const toast = document.createElement("div");
+        toast.classList.add("toast-container");
+        toast.innerHTML = `
+            <div class="notify-toast">
+                <div class="title"><strong>${title}</strong></div>
+                <div class="description">${description}</div>
+            </div>
+            `;
+        renderLine("terminal-text-window", [
+          `.xos -n --title ${title}, --desc ${description}, --time ${duration}`,
+        ]);
+        const body = document.getElementsByTagName("body")[0];
+        body.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = 0;
+          setTimeout(() => {
+            toast.remove();
+          }, 400);
+        }, duration);
+      }
+      function formatNumber(number) {
+        if (number >= 1000 && number < 1000000) {
+          return (number / 1000).toFixed(0) + "K";
+        } else {
+          return number.toString();
+          renderLine("terminal-text-window", [`format --num ${number}`]);
+        }
+      }
+      function calculateAverageViews(startDate, totalViews) {
+        let currentDate = new Date();
+        let daysSinceStart = Math.ceil(
+          (currentDate - new Date(startDate)) / (1000 * 60 * 60 * 24)
+        );
+        // Avoid division by zero if the website just started
+        if (daysSinceStart === 0) {
+          return 34004;
+        }
+        let averageViewsPerDay = totalViews / daysSinceStart;
+        return averageViewsPerDay;
+      }
+      function notifyBanner(description) {
+        const banner = document.createElement("div");
+        banner.classList.add("banner");
+        banner.innerHTML = `
+            <div class="description">${description}</div>
+            <div id="close-banner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.9996 10.1221L13.3026 15.4251C13.584 15.7065 13.9657 15.8646 14.3636 15.8646C14.7616 15.8646 15.1432 15.7065 15.4246 15.4251C15.706 15.1437 15.8641 14.7621 15.8641 14.3641C15.8641 13.9662 15.706 13.5845 15.4246 13.3031L10.1196 8.00011L15.4236 2.69711C15.5629 2.55778 15.6733 2.39238 15.7487 2.21036C15.824 2.02834 15.8628 1.83326 15.8627 1.63626C15.8627 1.43926 15.8238 1.2442 15.7484 1.06221C15.673 0.880224 15.5624 0.714877 15.4231 0.57561C15.2838 0.436343 15.1184 0.325884 14.9364 0.250538C14.7543 0.175193 14.5592 0.136437 14.3623 0.136483C14.1653 0.13653 13.9702 0.175377 13.7882 0.250809C13.6062 0.32624 13.4409 0.436778 13.3016 0.57611L7.9996 5.87911L2.6966 0.57611C2.5583 0.432781 2.39284 0.318431 2.20987 0.239733C2.0269 0.161034 1.83009 0.119563 1.63092 0.117739C1.43176 0.115915 1.23422 0.153774 1.04984 0.229109C0.865462 0.304443 0.697932 0.415744 0.557027 0.556516C0.416123 0.697288 0.304664 0.864713 0.229156 1.04902C0.153648 1.23333 0.115602 1.43083 0.117238 1.63C0.118874 1.82917 0.16016 2.02602 0.238686 2.20906C0.317212 2.3921 0.431406 2.55767 0.574604 2.69611L5.8796 8.00011L0.575604 13.3041C0.432406 13.4425 0.318212 13.6081 0.239686 13.7912C0.16116 13.9742 0.119874 14.1711 0.118238 14.3702C0.116602 14.5694 0.154648 14.7669 0.230156 14.9512C0.305664 15.1355 0.417122 15.3029 0.558027 15.4437C0.698932 15.5845 0.866462 15.6958 1.05084 15.7711C1.23522 15.8464 1.43276 15.8843 1.63192 15.8825C1.83109 15.8807 2.0279 15.8392 2.21087 15.7605C2.39384 15.6818 2.5593 15.5674 2.6976 15.4241L7.9996 10.1221Z" fill="black"/>
+                </svg>
+            </div>
+            `;
+        const bodyElement = document.getElementsByTagName("body")[0];
+        bodyElement.appendChild(banner);
+        document
+          .getElementById("close-banner")
+          .addEventListener("click", () => {
+            document.getElementsByClassName("banner")[0].remove();
+          });
+      }
+      function sendEmail() {
+        const info = {
+          name: document.getElementById("name-email-form").value,
+          email: document.getElementById("email-email-form").value,
+          subject: document.getElementById("subject-email-form").value,
+        };
+        document.getElementById("name-email-form").value = "";
+        document.getElementById("email-email-form").value = "";
+        document.getElementById("subject-email-form").value = "";
+        notifyToast("sent", "email sent to owner", 2000);
+      }
+    </script>
+    <script title="options featured section">
+      function changeOptionsFeatured(index) {
+        const featured = document.getElementById("options-featured");
+
+        const buttons = document.getElementsByClassName("button-options");
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("button-active");
+        }
+
+        if (index == 0) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title"><strong class="title-no-effect">CURRENT GITUB REPO</strong></div>
+                    <div class="rest">
+                        <div class="rest-item">
+                            <strong class="fancytext button-github" onclick="changeFeatured(0)">xero-systems-lite</strong>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext button-github" onclick="changeFeatured(1)">open-chat</strong>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext button-github" onclick="changeFeatured(2)">speedtest</strong>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext button-github" onclick="changeFeatured(3)">X1OS</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div id="featured">
+                    <div class="about">
+                        <!-- basic repo info eg title and description-->
+                        <div class="title"></div>
+                        <div class="rest"></div>
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="about">
+                        <!-- repo downloads veiws and so on -->
+                        <div class="title"></div>
+                        <div class="rest">
+                            <div class="rest-item">
+                                <!--  downloads -->
+                            </div>
+                            <div class="rest-item">
+                                <!--  views -->
+                            </div>
+                            <div class="rest-item">
+                                <!--  commits -->
+                            </div>
+                            <div class="rest-item">
+                                <!--  issues -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+        } else if (index == 1) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">STATISTICS</div>
+                    <div class="rest">
+                        <div class="rest-item">
+                           <strong class="fancytext button-stats" onclick="changeStatsFeatured(0)">views: </strong>
+                           <span id="veiw-tag"></span>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext button-stats" onclick="changeStatsFeatured(1)">daily: </strong>
+                            <span id="daily-tag"></span>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext button-stats" onclick="changeStatsFeatured(2)">downloads: </strong>
+                            <span id="download-tag"></span>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext button-stats" onclick="changeStatsFeatured(3)">commits </strong> 5
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div id="stats-featured"></div>
+                `;
+        } else if (index == 2) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                        CONTACT
+                    </div>
+                    <div class="rest">
+                        <div class="rest-item">
+                            <strong class="fancytext" onclick="copyToClipboard('3hy');notifyToast('discord','copied to clipboard',2000)">discord</strong>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext" onclick="openInNewTab('steamcommunity.com/id/boykisserfr/')">steam</strong>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext button-info-final" onclick="infoFeaturedFinal(0)">E-mail</strong>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext button-info-final" onclick="infoFeaturedFinal(1)">more info</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div id="info-featured-changer"></div>
+                `;
+        } else if (index == 3) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                        DOWNLOADS
+                    </div>
+                    <div class="rest">
+                        <div class="rest-item">
+                            <strong class="fancytext">XSL Latest</strong>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext"></strong>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext"></strong>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext"></strong>
+                        </div>
+                    </div>
+                </div>
+                `;
+        }
+        buttons[index].classList.add("button-active");
+      }
+    </script>
+    <script title="repo featured section">
+      function changeFeatured(index) {
+        const featured = document.getElementById("featured");
+        const buttons = document.getElementsByClassName("button-github");
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("button-active");
+        }
+
+        if (index == 0) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">xero-systems-lite</div>
+                    <div class="rest">
+                        <div class="rest-item">
+                            releases:
+                        </div>
+                        <div class="rest-item">
+                            commits:
+                        </div>
+                        <div class="rest-item">
+                            issues:
+                        </div>
+                         <div class="rest-item">
+                            last update:
+                        </div>
+                    </div>
+                </div>
+                `;
+        } else if (index == 1) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">open-chat</div>
+                    <div class="rest">
+                        <div class="rest-item">
+                            releases:
+                        </div>
+                        <div class="rest-item">
+                            commits:
+                        </div>
+                        <div class="rest-item">
+                            issues:
+                        </div>
+                         <div class="rest-item">
+                            last update:
+                        </div>
+                    </div>
+                </div>
+                `;
+        } else if (index == 2) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">speedtest</div>
+                    <div class="rest">
+                        <div class="rest-item">
+                            releases:
+                        </div>
+                        <div class="rest-item">
+                            commits:
+                        </div>
+                        <div class="rest-item">
+                            issues:
+                        </div>
+                         <div class="rest-item">
+                            last update:
+                        </div>
+                    </div>
+                </div>
+                `;
+        } else if (index == 3) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">X1OS</div>
+                    <div class="rest">
+                        <div class="rest-item">
+                            releases:
+                        </div>
+                        <div class="rest-item">
+                            commits:
+                        </div>
+                        <div class="rest-item">
+                            issues:
+                        </div>
+                         <div class="rest-item">
+                            last update:
+                        </div>
+                    </div>
+                </div>
+                `;
+        }
+        buttons[index].classList.add("button-active");
+      }
+    </script>
+    <script title="stats featured section">
+      function changeStatsFeatured(index) {
+        const featured = document.getElementById("stats-featured");
+
+        const buttons = document.getElementsByClassName("button-stats");
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("button-active");
+        }
+        if (index == 0) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                        VIEWS
+                    </div>
+                    <div class="rest">
+                        this is the total amount of visitors to this webpage, and yes that includes you. the raw number is <span id="view-raw-tag"></span>
+                    </div>
+                </div>
+                `;
+        } else if (index == 1) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                        Daily Veiws
+                    </div>
+                    <div class="rest">
+                        this is an average of the amount of veiws this website has gotten from day one to current day, the raw value is <span id="daily-raw-tag">
+                    </div>
+                </div>
+                `;
+        } else if (index == 2) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                        DOWNLOADS
+                    </div>
+                    <div class="rest">
+                        this is the total amount of people who have downloaded software off of this webpage the raw value being <span id="download-raw-tag"></span>
+                    </div>
+                </div>
+                `;
+        } else if (index == 3) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                        COMMITS
+                    </div>
+                    <div class="rest">
+                        this is the amount of times this website has had new code added to it
+                    </div>
+                </div>
+                `;
+        }
+        buttons[index].classList.add("button-active");
+      }
+    </script>
+    <script title="info changer">
+      function infoFeaturedFinal(index) {
+        const featured = document.getElementById("info-featured-changer");
+
+        const buttons = document.getElementsByClassName("button-info-final");
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("button-active");
+        }
+        if (index == 0) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                        EMAIL ME
+                    </div>
+                    <div class="rest">
+                        <div class="rest-item">
+                            <input type="text" class="form-email" placeholder="name" id="name-email-form">
+                        </div>
+                        <div class="rest-item">
+                            <input type="text" class="form-email" placeholder="email" id="email-email-form">
+                        </div>
+                        <div class="rest-item">
+                            <input type="text" class="form-email" placeholder="subject" id="subject-email-form">
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext button-info-sub" id="submit-email-form" onclick="sendEmail()">submit</strong>
+                        </div>
+
+                            
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div id="info-featured-changer-two"></div>
+                `;
+        } else if (index == 1) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                        MORE INFORMATION
+                    </div>
+                    <div class="rest">
+                        <div class="rest-item">
+                            <strong class="fancytext button-info-sub" onclick="infoFeaturedFinalTwo(0)">software</strong>
+                        </div>
+                        <div class="rest-item">
+                            <strong class="fancytext button-info-sub" onclick="infoFeaturedFinalTwo(1)">website</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div id="info-featured-changer-two"></div>
+                `;
+        }
+        buttons[index].classList.add("button-active");
+      }
+    </script>
+    <script title="info changer sub">
+      function infoFeaturedFinalTwo(index) {
+        const featured = document.getElementById("info-featured-changer-two");
+
+        const buttons = document.getElementsByClassName("button-info-sub");
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("button-active");
+        }
+        if (index == 0) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                        SOFTWARE 
+                    </div>
+                    <div class="rest">
+                    </div>
+                </div>
+                `;
+        } else if (index == 1) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                        WEBSITES
+                    </div>
+                    <div class="rest">
+                        I have made several websites over the past few 
+                    </div>
+                </div>
+                `;
+        } else if (index == 2) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                    </div>
+                    <div class="rest">
+                    </div>
+                </div>
+                `;
+        } else if (index == 3) {
+          featured.innerHTML = `
+                <div class="about">
+                    <div class="title">
+                    </div>
+                    <div class="rest">
+                    </div>
+                </div>
+                `;
+        }
+        buttons[index].classList.add("button-active");
+      }
+    </script>
+    <script type="module" title="firebase stuff">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+      import {
+        getDatabase,
+        ref,
+        get,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+      import { runTransaction } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyBqw40pf506_A76Ud6HBxDWgrRVRM87Jdg",
+        authDomain: "xosdev-99a41.firebaseapp.com",
+        databaseURL:
+          "https://xosdev-99a41-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "xosdev-99a41",
+        storageBucket: "xosdev-99a41.appspot.com",
+        messagingSenderId: "1038360933731",
+        appId: "1:1038360933731:web:474ebaa7b0b1bd856d4f56",
+        measurementId: "G-1TW0LT4EY1",
+      };
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const database = getDatabase(app);
+      async function readData(path) {
+        const dataRef = ref(database, path);
+        try {
+          const snapshot = await get(dataRef);
+          return snapshot.val();
+        } catch (error) {
+          console.error("Error reading data:", error);
+          return null;
+        }
+      }
+      evalScript(await readData("banner"));
+      async function incrementValue(path) {
+        const dataRef = ref(database, path);
+
+        try {
+          await runTransaction(dataRef, (currentValue) => {
+            if (!currentValue) {
+              return 1;
+            }
+            return currentValue + 1;
+          });
+        } catch (error) {
+          console.error("Error incrementing value:", error);
+        }
+      }
+      incrementValue("veiws");
+      setInterval(async () => {
+        const veiws = await readData("veiws");
+        const downloads = await readData("downloads");
+        if (document.getElementById("veiw-tag") !== null) {
+          document.getElementById("veiw-tag").innerText = formatNumber(veiws);
+        }
+        if (document.getElementById("download-tag") !== null) {
+          document.getElementById("download-tag").innerText =
+            formatNumber(downloads);
+        }
+        if (document.getElementById("view-raw-tag") !== null) {
+          document.getElementById("view-raw-tag").innerText =
+            veiws.toLocaleString();
+        }
+        if (document.getElementById("download-raw-tag") !== null) {
+          document.getElementById("download-raw-tag").innerText =
+            downloads.toLocaleString();
+        }
+        if (document.getElementById("daily-tag") !== null) {
+          document.getElementById("daily-tag").innerText = formatNumber(
+            Math.round(calculateAverageViews("2023-12-16", veiws))
+          );
+        }
+        if (document.getElementById("daily-raw-tag") !== null) {
+          document.getElementById("daily-raw-tag").innerText = Math.round(
+            calculateAverageViews("2023-12-16", veiws)
+          ).toLocaleString();
+        }
+      }, 100);
+    </script>
+    <script title="animation lib">
+      window.addEventListener("DOMContentLoaded", addCustomKeyframe);
+
+      function addCustomKeyframe() {
+        const elements = document.querySelectorAll("[data-animation]");
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.5,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const element = entry.target;
+              const animationName = element.getAttribute("data-animation");
+              const animationDuration =
+                element.getAttribute("data-animation-duration") || "1s";
+              const animationDelay =
+                element.getAttribute("data-animation-delay") || "0s";
+
+              element.classList.remove("hidden");
+              element.classList.add("custom-animation");
+              element.classList.add(animationName);
+              element.style.animationDuration = animationDuration;
+              element.style.animationDelay = animationDelay;
+              observer.unobserve(element);
+            }
+          });
+        }, observerOptions);
+
+        elements.forEach((element) => {
+          // Hide the element initially by adding the 'hidden' class
+          element.classList.add("hidden");
+          observer.observe(element);
+        });
+
+        // Add event listener to reset opacity after animation completes
+        elements.forEach((element) => {
+          element.addEventListener("animationend", () => {
+            element.style.opacity = "1";
+          });
+        });
+      }
+
+      const style = document.createElement("style");
+      style.innerHTML = `
+        .hidden {
+            visibility: hidden;
+        }
+
+        .custom-animation {
+            opacity: 0;
+        }
+
+        .custom-animation.from-left {
+            animation-name: fromLeft;
+        }
+
+        .custom-animation.from-right {
+            animation-name: fromRight;
+        }
+
+        .custom-animation.from-bottom {
+            animation-name: fromBottom;
+        }
+
+        .custom-animation.from-top {
+            animation-name: fromTop;
+        }
+
+        .custom-animation.opacity {
+            animation-name: opacity;
+        }
+
+        @keyframes fromLeft {
+            0% {
+            transform: translateX(-100px);
+            opacity: 0;
+            }
+
+            100% {
+            transform: translateX(0);
+            opacity: 1;
+            }
+        }
+
+        @keyframes fromRight {
+            0% {
+            transform: translateX(100px);
+            opacity: 0;
+            }
+
+            100% {
+            transform: translateX(0);
+            opacity: 1;
+            }
+        }
+
+        @keyframes fromBottom {
+            0% {
+            transform: translateY(100px);
+            opacity: 0;
+            }
+
+            100% {
+            transform: translateY(0);
+            opacity: 1;
+            }
+        }
+
+        @keyframes fromTop {
+            0% {
+            transform: translateY(-100px);
+            opacity: 0;
+            }
+
+            100% {
+            transform: translateY(0);
+            opacity: 1;
+            }
+        }
+
+        @keyframes opacity {
+            0% {
+            opacity: 0;
+            }
+
+            100% {
+            opacity: 1;
+            }
+        }
+    `;
+
+      document.head.appendChild(style);
+    </script>
+    <script title="parallax">
+      function parallax(elementId, divider) {
+        const parallax = document.getElementById(elementId);
+        if (window.innerWidth >= 770) {
+          document.addEventListener("mousemove", (event) => {
+            let _mouseX = event.clientX / divider;
+            let _mouseY = event.clientY / divider;
+            parallax.style.cssText = `
+              transform: translate(${_mouseX}px, ${_mouseY}px);
+              -webkit-transform: translate(${_mouseX}px, ${_mouseY}px);
+              -moz-transform: translate(${_mouseX}px, ${_mouseY}px);
+            `;
+            setTimeout(() => {
+              parallax.style.transition = "all  0s";
+            }, 300);
+          });
+          // minus 1/2
+          document.addEventListener("mouseout", () => {
+            parallax.style.cssText = `
+              transform: translate(0px, 0px);
+              -webkit-transform: translate(0px, 0px);
+              -moz-transform: translate(0px, 0px);
+              transition: all 0.3s ease-in-out;
+            `;
+          });
+        } else if (false) {
+          window.addEventListener("deviceorientation", handleOrientation);
+
+          function handleOrientation(event) {
+            let _mouseX = event.gamma / divider;
+            let _mouseY = event.beta / divider;
+            parallax.style.cssText = `
+              transform: translate(${_mouseX}px, ${_mouseY}px);
+              -webkit-transform: translate(${_mouseX}px, ${_mouseY}px);
+              -moz-transform: translate(${_mouseX}px, ${_mouseY}px);
+            `;
+            setTimeout(() => {
+              parallax.style.transition = "all  0s";
+            }, 300);
+          }
+        }
+      }
+
+      parallax("parallax", 50);
+      parallax("terminal", 200);
+      parallax("status", 300);
+      parallax("footer", 300);
+      parallax("terminal-text-window", 400);
+      parallax("link-landing-page-home", 350);
+      parallax("link-landing-page-about", 350);
+      parallax("link-landing-page-beta", 350);
+      parallax("link-landing-page-commits", 350);
+    </script>
+    <script title="terminal out">
+      function renderLine(containerId, dataset) {
+        const container = document.getElementById(containerId);
+        const line = document.createElement("div");
+        let lineData = dataset[Math.floor(Math.random() * dataset.length)]; // Fix random number generation
+        if (lineData[0] === ".") {
+          line.classList.add("command-terminal-line-special");
+          lineData = lineData.slice(1);
+        }
+        for (let i = 0; i < lineData.length; i++) {
+          (function (index) {
+            setTimeout(() => {
+              line.textContent += lineData[index];
+            }, 40 * (index + 1));
+          })(i);
+        }
+
+        container.scrollTo({
+          left: 0,
+          top: container.scrollHeight,
+          behavior: "smooth",
+        });
+        line.classList.add("terminal-line");
+        container.appendChild(line);
+      }
+
+      setInterval(() => {
+        renderLine("terminal-text-window", [
+          "25 Dir(s)  100,000,923,648,390 bytes free",
+          "C:\Users\coolperson",
+          "echo welcome to Xero Systems",
+          ".xos -Sm --ping 'https://xos.onl'",
+          ".xos --bind 'ctrl x' 'shutdown -s -t 0 -f'",
+          ".xos -n --mac 'eath01'",
+          ".xos -v --mac -raw",
+          "98-FE-C1-27-A8-5D",
+          `09/21/2023  05:23 PM    <DIR>          .android`,
+          `11/30/2023  06:56 PM    <DIR>          .vscode`,
+          `12/02/2023  11:23 AM    <DIR>          Desktop`,
+          `12/14/2023  02:12 PM               330 .gitconfig`,
+          "find /path/to/search -type f -name '*.txt'",
+          "tar -cvzf archive.tar.gz /path/to/directory",
+          "grep -r 'pattern' /path/to/search",
+          "sudo apt-get install mock_package",
+          "Get-ChildItem -Path C:\Mock\Path\To\Directory",
+          "New-Item -ItemType Directory -Path C:\Mock\New\Directory",
+          "Get-WmiObject -Class Win32_ComputerSystem",
+          "Set-ExecutionPolicy RemoteSigned",
+          "Rename-Item -Path C:\Mock\Path\To\File.txt -NewName NewName.txt",
+          "ipconfig",
+          "rmdir /s /q C:\Mock\Path\To\Directory",
+          "chkdsk /f C:",
+          "find /path/to/search -type f -mtime -7 -exec tar -rvf recent_files.tar {} \;",
+          "ps aux --sort=-%cpu | head -n 11",
+          "zip --encrypt -P secret_password encrypted_archive.zip /path/to/directory",
+          "sudo apt-get install nginx",
+          "sudo systemctl start nginx",
+          "sudo systemctl enable nginx",
+          "grep -rl 'old_text' /path/to/search | xargs sed -i 's/old_text/new_text/g'",
+          "$action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument 'C:\Path\To\Script.ps1'",
+          "Register-ScheduledTask -Action $action -Trigger (New-ScheduledTaskTrigger -AtStartup) -TaskName 'RunScript'",
+          "Get-PhysicalDisk | Select-Object MediaType, OperationalStatus, Size, PartitionStyle",
+          "Get-EventLog -LogName System -EntryType Error",
+          "Copy-Item -Path 'C:\Source\*' -Destination 'C:\Destination' -Recurse -Container -Force -Verbose",
+          "mklink /D C:\Link\To\Directory C:\Path\To\Target",
+          "netstat -ano",
+          "mkdir C:\Root\Level1\Level2\Level3",
+          "sfc /scannow",
+          "sc query state= all | find 'SERVICE_NAME'",
+        ]);
+      }, 500);
+    </script>
+    <script title="perspective warp">
+      const card = document.querySelector(".card");
+      const THRESHOLD = 15;
+      const motionMatchMedia = window.matchMedia("(prefers-reduced-motion)");
+      function handleHover(e) {
+        const { clientX, clientY, currentTarget } = e;
+        const { clientWidth, clientHeight, offsetLeft, offsetTop } =
+          currentTarget;
+
+        const horizontal = (clientX - offsetLeft) / clientWidth;
+        const vertical = (clientY - offsetTop) / clientHeight;
+        const rotateX = (THRESHOLD / 2 - horizontal * THRESHOLD).toFixed(2);
+        const rotateY = (vertical * THRESHOLD - THRESHOLD / 2).toFixed(2);
+
+        card.style.transform = `perspective(${clientWidth}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg) scale3d(1, 1, 1)`;
+      }
+
+      function resetStyles(e) {
+        card.style.transform = `perspective(${e.currentTarget.clientWidth}px) rotateX(0deg) rotateY(0deg)`;
+      }
+
+      function doCardAnimations() {
+        if (!motionMatchMedia.matches) {
+          card.addEventListener("mousemove", handleHover);
+          card.addEventListener("mouseleave", resetStyles);
+        }
+      }
     </script>
   </body>
 </html>

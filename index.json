@@ -1,7 +1,7 @@
 {
     "welcome": {
         "title": "welcome",
-        "content_file": "welcome to the offical Xero Systems Website, on this website you will find all the downloads to software published by Xero Systems. this website is under construction so be gentle :)<br><br> Hello, I am a 15yr old Aspirering Software / Web Dev from ,New Zealand, this website and all avalible software avalible on this site was made by me.",
+        "content_file": "welcome to the official Xero Systems Website, on this website you will find all the downloads to software published by Xero Systems. this website is under construction so be gentle :)<br><br> Hello, I am a 15yr old Aspiring Software / Web Dev from ,New Zealand, this website and all available software on this site was made by me.",
         "path_name": "home",
         "content_file_options": {
             "": {
@@ -11,10 +11,66 @@
                 "content_file_options": ""
             },
             "knowledge": {
-                "title": "knowledge",
-                "content_file": "Hello and welcome to my website, my name is 3hy, this is a website I have made to showcase my work, mainly new releases of software I have been solo developing.<br><br> I have learnt batch, python, HTML, CSS, JS, PHP and I am currently learning rust over the course of three years I am only fifteen and I have developed 3 functioning applications using various languages.<br><br> The first of which was written entirerly in batch, I then learnt python and made another app using Tkinter, after that I decided to move properly into software development so I learnt HTML, CSS and JS With Electron. <br> <br> I compiled my first real software, Xero Systems Lite, over the next year ( 2022 - 2023 ) I made 149 designs and 37 apps that where later scraped as the design dident meet my standards, the current design has had the most work put into it.<br><br>",
+                "title": "personal",
+                "content_file": "over the past 4 years I have had quite a few projects of varying difficulty, I have made 4 websites and 12 website designs, I have made 3 apps and 150 redesigns, I have learnt 7 programming languages and im currently learning rust in order to make better software, most of my software is free but that may change in the future if it becomes more advanced.",
                 "path_name": "knowledge",
-                "content_file_options": {}
+                "content_file_options": {
+                    "websites": {
+                        "title": "websites",
+                        "content_file": " I have made 4 working websites, here they are<br><br>https://example.com<br>https://example.com<br>https://example.com<br>https://example.com<br>https://example.com",
+                        "path_name": "web",
+                        "content_file_options": ""
+                    },
+                    "software": {
+                        "title": "software",
+                        "content_file": "currently I have 3 apps that are publicly available",
+                        "path_name": "apps",
+                        "content_file_options": {
+                            "XSL": {
+                                "title": "Xero Systems Lite",
+                                "content_file": "Xero Systems Lite is the latest version of my software. currently it has had 149 redesigns in order to make it look as visually appealing as possible, it has been a work in progress since 2020, this app has been made for the sole purpose of computer information and manipulation, it features tools and guides as well as a lengthy list of features including mac spoofing and registry editor  gui. it is a work in progress and its update schedule may be shaky",
+                                "path_name": "xsl",
+                                "content_file_options": ""
+                            },
+                            "terminal_display": {
+                                "title": "Terminal Display",
+                                "content_file": "this app overlays your screen with a retro terminal display, it uses python backend to gather C code on your local machine, it then displays it.",
+                                "path_name": "terminal",
+                                "content_file_options": ""
+                            },
+                            "open_chat": {
+                                "title": "open-chat",
+                                "content_file": "open-chat is a fully functioning application made to display working python backend integration, it features a community chat room hosted on firebase along with groups and somewhat private encryption, use at own risk as it may have faulty code",
+                                "path_name": "open-chat",
+                                "content_file_options": ""
+                            }
+                        }
+                    },
+                    "languages": {
+                        "title": "languages",
+                        "content_file": "",
+                        "path_name": "langs",
+                        "content_file_options": ""
+                    }
+                }
+            },
+            "contact": {
+                "title": "contact",
+                "content_file": "welcome to my website!<br><br><br>Discord: 3hy<br>Steam: https://steamcommunity.com/id/boykisserfr/<br>Email: tkf.x1os@gmail.com",
+                "path_name": "contact",
+                "content_file_options": ""
+            },
+            "about": {
+                "title": "about",
+                "content_file": "this website was published in Jan 2024. its owned by 3hy",
+                "path_name": "about",
+                "content_file_options": ""
+            },
+            "downloads": {
+                "title": "downloads",
+                "content_file": "",
+                "path_name": "download",
+                "content_file_options": ""
             }
         }
     }

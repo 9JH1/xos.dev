@@ -11,63 +11,92 @@
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
     .selector {
-      width: 550px;
-      height: 260px;
-      background-color: red;
+      width: 50%;
+      height: 100%;
       font-family: "Poppins";
+      color: var(--text-color);
 
       .top-title {
         width: 100%;
-        height: 10%;
-        background-color: green;
+        height: 20%;
         display: flex;
 
         .path {
           width: 60%;
           height: 100%;
-          background-color: rgb(32, 135, 224);
           display: flex;
+          padding-left: 10px;
+          font-family: "Azeret Mono", monospace;
+          align-items: center;
+          font-size: 11px;
 
           .path-item {
-            background-color: rgb(98, 98, 160);
+            cursor: pointer;
+          }
+
+          .path-item-sep {
+            color: var(--text-non-active);
           }
         }
 
         .title {
           width: 40%;
           height: 100%;
-          background-color: darkblue;
+          display: flex;
+          align-items: center;
+          justify-content: end;
+          padding-right: 10px;
+          font-size: 13px;
+          font-family: "Azeret Mono", monospace;
         }
       }
 
       .inner-sel {
         width: 100%;
-        height: 90%;
-        background-color: blue;
+        height: 80%;
         display: flex;
 
         .contents {
           width: 20%;
           height: 100%;
-          background-color: orange;
           padding: 5px;
           -moz-box-sizing: border-box;
           box-sizing: border-box;
+          font-family: 'Azeret Mono', monospace;
 
           .back {
             height: fit-content;
-            background-color: cyan;
+            background-color: var(--text-color);
+            color: var(--background);
+            padding-left: 5px;
+            font-size: 11px;
+            opacity: var(--context-opacity);
+            cursor: pointer;
+            transition: all var(--animation-scale);
+          }
+
+          .back:hover {
+            opacity: 1;
           }
 
           .rest {
             width: 100%;
-            background-color: purple;
             height: max-content;
 
             .rest-item {
-              background-color: cyan;
+              background-color: var(--text-color);
               overflow: hidden;
-              font-size: 0.8em;
+              font-size: 11px;
+              color: var(--background);
+              padding-left: 5px;
+              height: fit-content;
+              opacity: var(--context-opacity);
+              cursor: pointer;
+              transition: all var(--animation-scale);
+            }
+
+            .rest-item:hover {
+              opacity: 1;
             }
           }
         }
@@ -75,14 +104,26 @@
         .article {
           width: 80%;
           height: 100%;
-          background-color: brown;
+          background-color: var(--element-dark);
+          padding: 8px;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
 
           .frame-file {
             width: 100%;
             height: 100%;
             border: none;
             outline: none;
+            font-size: 10px;
+            font-family: "Azeret Mono", monospace;
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
 
+          }
+
+          .frame-file::-webkit-scrollbar {
+            display: none;
           }
         }
       }
@@ -170,9 +211,9 @@
 
       titleElement.innerText = currentData.title;
 
-      //console.log(currentData.content_file);
-      frameFileContents.innerHTML = `<iframe class="frame-file" src="${currentData.content_file}"></iframe>`
-      //onsole.log("sub:");
+      console.log(currentData.content_file);
+      frameFileContents.innerHTML = `<div class="frame-file">${currentData.content_file}</div>`
+      onsole.log("sub:");
 
       if (currentData && currentData.content_file_options && typeof currentData.content_file_options === "object") {
         for (const [key, value] of Object.entries(
@@ -183,17 +224,17 @@
           subDirsElement.innerHTML += `<div class="rest-item", onclick="renderInformedPage('${path}/content_file_options/${key}')">${key}</div>`
         }
       } else {
-        //console.log("no sub dirs");
+        console.log("no sub dirs");
       }
     }
 
     let jsonDataContent;
-    fetch(".pages/index.json")
+    fetch("index.json")
       .then((response) => response.json())
       .then((json) => {
         jsonDataContent = json;
         renderInformedPage(
-          "optionOne/content_file_options/subOptionTwo",
+          "welcome",
           jsonDataContent
         );
       })

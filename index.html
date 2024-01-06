@@ -19,9 +19,10 @@
 
     :root {
       --background: #090C08;
-      --larTexBackground-one: #474056;
-      --larTexBackground-two: #8A95A5;
+      --larTexBackground-one: #D999B9;
+      --larTexBackground-two: #D17B88;
       --text-color: #B9C6AE;
+      --text-color-opposite: black;
       --text-non-active: grey;
       --element-dark: #090C08;
       --context-opacity: 0.7;
@@ -226,6 +227,7 @@
                 font-family: "Azeret Mono", monospace;
                 user-select: none;
                 cursor: pointer;
+                color: transparent;
                 transition: all var(--animation-scale);
               }
 
@@ -339,7 +341,7 @@
           </div>
         </div>
         <div class="right">
-          <div class="beta-btn">JOIN BETA</div>
+          <div class="beta-btn" id="beta-btn">JOIN BETA</div>
         </div>
       </div>
       <div class="slider"></div>
@@ -355,10 +357,10 @@
       </div>
     </div>
     <div class="footer" id="footer">
-      <div class="larger-text">
+      <div class="larger-text" id="lar-tex">
         XOS.ONL
       </div>
-      <div class="selector">
+      <div class="selector" id="sel-foo">
         <div class="top-title">
           <div class="path" id="path-content-selector"></div>
           <div class="title" id="title-selector"></div>
@@ -658,6 +660,33 @@
         );
       })
       .catch((error) => console.error("Error fetching JSON:", error));
+  </script>
+  <script title="root function">
+    // setting BETA button colors
+    const rootStyles = getComputedStyle(document.documentElement);
+    const mainColor = rootStyles.getPropertyValue('--main-color').trim();
+    function isDark(hexColor) {
+      hexColor = hexColor.replace(/^#/, '');
+
+      // Convert hex to RGB
+      let bigint = parseInt(hexColor, 16);
+      let red = (bigint >> 16) & 255;
+      let green = (bigint >> 8) & 255;
+      let blue = bigint & 255;
+
+      // Calculate luminance using the relative luminance formula
+      let luminance = 0.2126 * red + 0.7152 * green + 0.0722 * blue;
+      let threshold = 128;
+
+      // Compare luminance with the threshold@
+      return luminance > threshold ? true : false;
+    }
+    if (isDark(mainColor)) {
+      document.getElementById("beta-btn").style.color = "var(--text-color)"
+    } else {
+      document.getElementById("beta-btn").style.color = "var(--text-color-opposite)"
+    }
+
   </script>
 </body>
 

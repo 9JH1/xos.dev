@@ -27,6 +27,7 @@
       --text-color-opposite: black;
       --text-non-active: grey;
       --element-dark: #010201;
+      --banner-color: rgb(32, 32, 32);
       --context-opacity: 0.7;
       --animation-scale: 0.3s;
     }
@@ -324,6 +325,55 @@
       }
     }
 
+    #banner-page {
+      position: absolute;
+      width: 100vw;
+      height: 20vh;
+      z-index: 1000000;
+      bottom: 0%;
+      left: 0%;
+      display: flex;
+      background-color: var(--banner-color);
+      border-radius: 10px 10px 0px 0px;
+
+      .title {
+        width: 98%;
+        height: 100%;
+
+        .inner-title {
+          width: 100%;
+          height: 20%;
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          font-size: 20px;
+          color: var(--text-hover-color)
+        }
+
+        .inner-desc {
+          width: 100%;
+          height: 80%;
+          padding: 10px;
+          color: var(--text-color)
+        }
+      }
+
+      .close-column {
+        width: 50px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .close-rel {
+          transform: rotate(90deg);
+          color: var(--text-color);
+          text-decoration: underline;
+          font-weight: 900;
+        }
+      }
+    }
+
     @media only screen and (max-width: 720px) {
       body {
         overflow-y: scroll !important;
@@ -435,11 +485,6 @@
 </head>
 
 <body>
-
-
-
-
-
   <div class="page1">
     <div class="header" id="status">
       <div class="buttons">
@@ -500,11 +545,6 @@
       </div>
     </div>
   </div>
-
-
-
-
-
   <script title="animation lib">
     window.addEventListener("DOMContentLoaded", addCustomKeyframe);
 
@@ -685,12 +725,6 @@
         }
       }
     }
-
-    parallax("parallax", 50);
-    parallax("terminal", 200);
-    parallax("status", 300);
-    parallax("footer", 300);
-    parallax("iframe-selector", 350);
   </script>
   <script title="json implementation">
     function renderInformedPage(path) {
@@ -806,9 +840,55 @@
     } else {
       document.getElementById("beta-btn").style.color = "var(--text-color-opposite)"
     }
-    // fullscreen 
-    document.requestFullscreen();
-    console.log(document.fullscreenEnabled)
+    // make banner 
+    function throwBanner(title, desc) {
+      const banner = document.createElement("div");
+      banner.id = "banner-page";
+      banner.innerHTML = `
+        <div class="title">
+          <div class="inner-title">${title}</div>
+          <div class="inner-desc">${desc}</div>
+        </div>
+        <div class="close-column">
+          <p class="close-rel" id="close-banner">close</p>
+        </div>
+        `;
+      document.getElementsByTagName("body")[0].appendChild(banner)
+      document.getElementById("close-banner").addEventListener("click", () => {
+        banner.remove()
+      })
+    }
+  </script>
+  <script title="debug color gen">
+    function addRandomBackgroundColorToElements() {
+      const allElements = document.querySelectorAll('*');
+
+      allElements.forEach(element => {
+        const randomColor = getRandomColor();
+        element.style.backgroundColor = randomColor;
+      });
+    }
+
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+
+      return color;
+    }
+
+  </script>
+  <script title="setup">
+    parallax("parallax", 50);
+    parallax("terminal", 200);
+    parallax("status", 300);
+    parallax("footer", 300);
+    parallax("iframe-selector", 350);
+    //throwBanner("welcome to Xero Systems", "this website is still under construction so don't expect everything to work<br><br> start by pressing <b>close</b> to the left");
+    //addRandomBackgroundColorToElements();
   </script>
 
 </body>

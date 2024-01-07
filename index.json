@@ -23,7 +23,7 @@
                     },
                     "software": {
                         "title": "software",
-                        "content_file": "currently I have 3 apps that are publicly available",
+                        "content_file": "currently I have 3 apps that are publicly available.",
                         "path_name": "apps",
                         "content_file_options": {
                             "XSL": {
@@ -56,7 +56,7 @@
             },
             "contact": {
                 "title": "contact",
-                "content_file": "welcome to my website!<br><br><br>Discord: 3hy<br>Steam: https://steamcommunity.com/id/boykisserfr/<br>Email: tkf.x1os@gmail.com",
+                "content_file": "welcome to my website!<br><br>Discord: 3hy<br>Steam: https://steamcommunity.com/id/boykisserfr/<br>Email: tkf.x1os@gmail.com",
                 "path_name": "contact",
                 "content_file_options": ""
             },

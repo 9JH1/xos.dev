@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <!--meta
       http-equiv="Content-Security-Policy"
       content="script-src 'none'; style-src 'none';"
@@ -42,7 +43,6 @@
         font-family: "Inconsolata", monospace;
         -ms-overflow-style: none;
         scrollbar-width: none;
-        overflow: hidden;
         user-select: none;
 
         .content-page {
@@ -800,8 +800,11 @@
     } else {
       document.getElementById("beta-btn").style.color = "var(--text-color-opposite)"
     }
-
+    // fullscreen 
+    document.requestFullscreen();
+    console.log(document.fullscreenEnabled)
   </script>
+
 </body>
 
 </html>

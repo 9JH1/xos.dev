@@ -370,7 +370,7 @@
                 width: 100%;
                 display: flex;
 
-                .fancytext {
+                .fancy-text {
                   margin-left: 20px;
                   font-size: 72px;
                   background: -webkit-linear-gradient(20deg, #0099ff, rgb(0, 225, 255), rgb(206, 78, 206), rgb(255, 43, 131));
@@ -591,7 +591,7 @@
                 <div class="text">
                   <div class="text-area">
                     <div class="title">XSL
-                      <div class="fancytext">7</div>
+                      <div class="fancy-text">7</div>
                     </div>
                     <div class="subtext">IS HERE </div>
                   </div>
@@ -829,6 +829,21 @@
         }
         return currentData.path_name
       }
+      function getHrefByPath(path, json) {
+        const pathParts = path.split("/");
+        let prePath = ""
+        let currentData = json;
+        for (const part of pathParts) {
+          if (currentData && currentData[part]) {
+            currentData = currentData[part];
+          } else {
+            console.error(`expected fault '${path}'.`);
+            console.log(currentData)
+            return null;
+          }
+        }
+        return currentData.header_reference
+      }
       const subDirsElement = document.getElementById("rest-content");
       const frameFileContents = document.getElementById("iframe-selector");
       const pathElement = document.getElementById("path-content-selector");
@@ -872,17 +887,26 @@
       titleElement.innerText = currentData.title;
 
       //console.log(currentData.content_file);
-      frameFileContents.innerHTML = `<div class="frame-file">${currentData.content_file}</div>`
+      frameFileContents.innerHTML = `<div class="frame-file">${currentData.content_file}</div>`;
       //console.log("sub:");
-
+      console.log(currentData.content_file_options)
       if (currentData && currentData.content_file_options && typeof currentData.content_file_options === "object") {
         for (const [key, value] of Object.entries(
           currentData.content_file_options
         )) {
-          subDirsElement.innerHTML += `<div class="rest-item", onclick="renderInformedPage('${path}/content_file_options/${key}')">${key}</div>`
+          let hrefPath = `${path}/content_file_options/${key}`;
+          if (!getHrefByPath(hrefPath, json)) {
+            subDirsElement.innerHTML += `<div class="rest-item", onclick="renderInformedPage('${path}/content_file_options/${key}')">${key}</div>`;
+          } else {
+            if (getHrefByPath(hrefPath, json).file) {
+              subDirsElement.innerHTML += `<div class="rest-item" onclick="downloadURI('${getHrefByPath(hrefPath, json).file}','${getHrefByPath(hrefPath, json).title}')" >${key}</div>`;
+            } else if (getHrefByPath(hrefPath, json)) {
+              subDirsElement.innerHTML += `<div class="rest-item" onclick="openWebTab('${getHrefByPath(hrefPath, json)}')" >${key}</div>`;
+            }
+
+          }
         }
       } else {
-        //console.log("no sub dirs");
       }
     }
 
@@ -940,6 +964,19 @@
       document.getElementById("close-banner").addEventListener("click", () => {
         banner.remove()
       })
+    }
+    // web page opening script
+    function openWebTab(url) {
+      location.href = url;
+    }
+    // downloader 
+    function downloadURI(uri, name) {
+      var link = document.createElement("a");
+      link.setAttribute('download', name);
+      link.href = uri;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
     }
   </script>
   <script title="debug color gen">

@@ -4,53 +4,70 @@
         "content_file": "welcome to the official Xero Systems Website, on this website you will find all the downloads to software published by Xero Systems. this website is under construction so be gentle :)<br><br> Hello, I am a 15yr old Aspiring Software / Web Dev from ,New Zealand, this website and all available software on this site was made by me.",
         "path_name": "home",
         "content_file_options": {
-            "": {
-                "title": "",
-                "content_file": " whyd you click on this huh?",
-                "path_name": "",
-                "content_file_options": ""
-            },
-            "knowledge": {
-                "title": "personal",
-                "content_file": "over the past 4 years I have had quite a few projects of varying difficulty, I have made 4 websites and 12 website designs, I have made 3 apps and 150 redesigns, I have learnt 7 programming languages and im currently learning rust in order to make better software, most of my software is free but that may change in the future if it becomes more advanced.",
-                "path_name": "knowledge",
+            "projects": {
+                "title": "projects",
+                "content_file": "Since I began my coding journey Ive made several personal projects to express my skill ( or lack of ), I hope to one day make a successful project that becomes popular but for now this is all I have so far, mostly never to be finished softwares.",
+                "path_name": "projects",
                 "content_file_options": {
-                    "websites": {
-                        "title": "websites",
-                        "content_file": " I have made 4 working websites, here they are<br><br>https://example.com<br>https://example.com<br>https://example.com<br>https://example.com<br>https://example.com",
-                        "path_name": "web",
-                        "content_file_options": ""
-                    },
                     "software": {
                         "title": "software",
-                        "content_file": "currently I have 3 apps that are publicly available.",
-                        "path_name": "apps",
+                        "content_file": "software, apps, programs, most of which are EXCLUSIVE to windows",
+                        "path_name": "software",
                         "content_file_options": {
-                            "XSL": {
-                                "title": "Xero Systems Lite",
-                                "content_file": "Xero Systems Lite is the latest version of my software. currently it has had 149 redesigns in order to make it look as visually appealing as possible, it has been a work in progress since 2020, this app has been made for the sole purpose of computer information and manipulation, it features tools and guides as well as a lengthy list of features including mac spoofing and registry editor  gui. it is a work in progress and its update schedule may be shaky",
-                                "path_name": "xsl",
-                                "content_file_options": ""
-                            },
-                            "terminal_display": {
-                                "title": "Terminal Display",
-                                "content_file": "this app overlays your screen with a retro terminal display, it uses python backend to gather C code on your local machine, it then displays it.",
-                                "path_name": "terminal",
-                                "content_file_options": ""
-                            },
-                            "open_chat": {
-                                "title": "open-chat",
-                                "content_file": "open-chat is a fully functioning application made to display working python backend integration, it features a community chat room hosted on firebase along with groups and somewhat private encryption, use at own risk as it may have faulty code",
-                                "path_name": "open-chat",
-                                "content_file_options": ""
+                            "xsl 49": "",
+                            "x1os bat": {
+                                "title": "X1OS bat",
+                                "path_name": "bat",
+                                "content_file": " this utility is similar to <b>x1os bat</b> and it shows a menu that allows you to download several starting applications so you spend as little time on microsoft edge",
+                                "content_file_options": {
+                                    "download": {}
+                                }
                             }
                         }
                     },
-                    "languages": {
-                        "title": "languages",
-                        "content_file": "",
-                        "path_name": "langs",
-                        "content_file_options": ""
+                    "websites": {
+                        "title": "websites",
+                        "content_file": "a collection of the various websites Ive made, this website is the most recent gaping the others by 2 years so most of the others don't come anywhere near standards with this one. they where made for learning unlike this one which was made for showcasing my projects.",
+                        "path_name": "websites",
+                        "content_file_options": {
+                            "x1os": {}
+                        }
+                    },
+                    "snippets": {
+                        "title": "snippets",
+                        "content_file": "this folder has several snippets of my code that I think others may find interesting or maybe even useful, that includes the system that gives this website its parallax.",
+                        "path_name": "other",
+                        "content_file_options": {
+                            "parallax": {}
+                        }
+                    },
+                    "finished": {
+                        "title": "finished projects",
+                        "content_file": "this is a collection of software deemed finished, or not to be continued. chances are this will be the most fill out of all of the other folders",
+                        "path_name": "finished",
+                        "content_file_options": {
+                            "bat": {
+                                "title": "X1OS bat",
+                                "path_name": "bat",
+                                "content_file": "this is the first software I made, if you can even call it that, it was written completely in window batch and when run shows full color gui as well as a responsive menu, please keep in mind that bat files are dangerous and should be downloaded carefully.",
+                                "content_file_options": {
+                                    "download": {}
+                                }
+                            },
+                            "openchat": {
+                                "title": "OPEN-CHAT",
+                                "path_name": "open-chat",
+                                "content_file": "",
+                                "content_file_options": {
+                                    "download": {
+                                        "header_reference": "https://github.com/9JH1/OPEN-CHAT/releases/download/3.0.0/open-chat.Setup.3.0.0.exe"
+                                    },
+                                    "source code": {
+                                        "header_reference": "https://github.com/9JH1/OPEN-CHAT/archive/refs/tags/3.0.0.zip"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -58,19 +75,13 @@
                 "title": "contact",
                 "content_file": "welcome to my website!<br><br>Discord: 3hy<br>Steam: https://steamcommunity.com/id/boykisserfr/<br>Email: tkf.x1os@gmail.com",
                 "path_name": "contact",
-                "content_file_options": ""
+                "content_file_options": {}
             },
             "about": {
                 "title": "about",
                 "content_file": "this website was published in Jan 2024. its owned by 3hy",
                 "path_name": "about",
-                "content_file_options": ""
-            },
-            "downloads": {
-                "title": "downloads",
-                "content_file": "",
-                "path_name": "download",
-                "content_file_options": ""
+                "content_file_options": {}
             }
         }
     }

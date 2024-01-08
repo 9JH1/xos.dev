@@ -35,7 +35,17 @@
     html {
       scroll-behavior: smooth;
 
-      body,
+      body {
+        height: 300vh;
+        margin: 0;
+        background: var(--background);
+        font-family: "Inconsolata", monospace;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        user-select: none;
+        overflow: hidden;
+      }
+
       .page1 {
         width: 100vw;
         height: 100vh;
@@ -44,8 +54,8 @@
         font-family: "Inconsolata", monospace;
         -ms-overflow-style: none;
         scrollbar-width: none;
-        overflow: hidden;
         user-select: none;
+        position: fixed;
 
         .content-page {
           width: 100%;
@@ -320,8 +330,68 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            user-select: all;
+            transition: all 1s ease-in-out;
+            overflow: hidden;
+          }
+
+
+        }
+      }
+
+      .pages-div {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .page-pages {
+          min-width: 100%;
+          height: 100vh;
+        }
+
+        .page1-pages {
+          display: flex;
+          align-items: start;
+
+          .text {
+            color: white;
+            width: 100%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 70px;
+
+            .text-area {
+              padding: 10px;
+              display: none;
+
+              .title {
+                width: 100%;
+                display: flex;
+
+                .fancytext {
+                  margin-left: 20px;
+                  font-size: 72px;
+                  background: -webkit-linear-gradient(20deg, #0099ff, rgb(0, 225, 255), rgb(206, 78, 206), rgb(255, 43, 131));
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  font-weight: 900;
+                }
+              }
+
+              .subtext {
+                width: 100%;
+                text-align: center;
+                font-size: 40px;
+              }
+            }
           }
         }
+
+        .page2-pages {}
+
+        .page3-pages {}
       }
     }
 
@@ -516,7 +586,20 @@
         <div class="large-text-background" id="parallax">XERO<br />SYSTEMS</div>
         <div class="terminal">
           <div class="terminal-window" id="terminal">
-            <div class="terminal-text" id="terminal-text-window"></div>
+            <div class="pages-div">
+              <div class="page-pages page1-pages">
+                <div class="text">
+                  <div class="text-area">
+                    <div class="title">XSL
+                      <div class="fancytext">7</div>
+                    </div>
+                    <div class="subtext">IS HERE </div>
+                  </div>
+                </div>
+              </div>
+              <div class="page-pages page1-pages">2</div>
+              <div class="page-pages page1-pages">3</div>
+            </div>
           </div>
         </div>
       </div>
@@ -790,7 +873,7 @@
 
       //console.log(currentData.content_file);
       frameFileContents.innerHTML = `<div class="frame-file">${currentData.content_file}</div>`
-      //onsole.log("sub:");
+      //console.log("sub:");
 
       if (currentData && currentData.content_file_options && typeof currentData.content_file_options === "object") {
         for (const [key, value] of Object.entries(
@@ -883,14 +966,22 @@
   </script>
   <script title="setup">
     parallax("parallax", 50);
-    parallax("terminal", 200);
     parallax("status", 300);
     parallax("footer", 300);
     parallax("iframe-selector", 350);
     //throwBanner("welcome to Xero Systems", "this website is still under construction so don't expect everything to work<br><br> start by pressing <b>close</b> to the left");
     //addRandomBackgroundColorToElements();
   </script>
-
+  <script title="animation to page2">
+    const terminalElement = document.getElementById("terminal");
+    terminalElement.addEventListener("click", () => {
+      terminalElement.style.width = "100vw";
+      terminalElement.style.height = "100vh";
+      terminalElement.style.borderRadius = "0px";
+      terminalElement.style.zIndex = "11111111111111";
+      terminalElement.style.background = "var(--background)"
+    })
+  </script>
 </body>
 
 </html>
